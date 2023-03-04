@@ -98,7 +98,15 @@ function noticeboard_install()
             'description' => 'Welche Gruppen dürfen nicht freigegebene Aufträge sehen?',
             'optionscode' => 'groupselect',
             'value' => '4', // Default
-            'disporder' => 1
+            'disporder' => 2
+        ),
+
+        'noticeboard_allow_groups_add' => array(
+            'title' => 'Aufträge erstellen',
+            'description' => 'Welche Gruppen dürfen Aufträge erstellen?',
+            'optionscode' => 'groupselect',
+            'value' => '4', // Default
+            'disporder' => 3
         ),
 
         'noticeboard_allow_groups_take' => array(
