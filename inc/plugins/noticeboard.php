@@ -53,7 +53,6 @@ function noticeboard_install()
         `players` VARCHAR(500),
         `scene` VARCHAR(500),
         `visible` INT(10) NOT NULL,
-        `writtenby` int(11) NOT NULL,
         PRIMARY KEY (`nid`),
         KEY `nid` (`nid`)
     )
@@ -102,22 +101,6 @@ function noticeboard_install()
             'disporder' => 1
         ),
 
-        'noticeboard_allow_groups_add' => array(
-            'title' => 'Aufträge erstellen',
-            'description' => 'Welche Gruppen dürfen Aufträge erstellen?',
-            'optionscode' => 'groupselect',
-            'value' => '4', // Default
-            'disporder' => 2
-        ),
-
-        'noticeboard_allow_groups_lead' => array(
-            'title' => 'Aufträge leiten',
-            'description' => 'Welche Gruppen dürfen Aufträge leiten?',
-            'optionscode' => 'groupselect',
-            'value' => '4', // Default
-            'disporder' => 3
-        ),
-
         'noticeboard_allow_groups_take' => array(
             'title' => 'Aufträge annehmen',
             'description' => 'Welche Gruppen dürfen Aufträge annehmen?',
@@ -132,14 +115,6 @@ function noticeboard_install()
             'optionscode' => 'groupselect',
             'value' => '4', // Default
             'disporder' => 5
-        ),
-
-        'noticeboard_allow_groups_edit' => array(
-            'title' => 'Aufträge bearbeiten',
-            'description' => 'Welche Gruppen dürfen Aufträge bearbeiten?',
-            'optionscode' => 'groupselect',
-            'value' => '4', // Default
-            'disporder' => 6
         ),
     );
 
@@ -309,15 +284,15 @@ $insert_array = array(
     <div class="noticeboard_formblock">
         <div class="noticeboard_formblock-label">
             <b>Spielort</b>
-            <br>Gib den Spielort für den Auftrag an. Du kannst die Quest auch auf der entsprechenden <a href="maps.php">Karte</a> vermerken.
+            <br>Gib den Spielort für den Auftrag an.
         </div>
         <div class="noticeboard_formblock-field">
             <select name="location" id="location"  style="width: 100%;">
                 <option value="">Wähle den Spielort</option>
-                <option value="Novigrad">Novigrad</option>
-                <option value="Oxenfurt">Oxenfurt</option>
-                <option value="Umland von Novigrad">Umland von Novigrad</option>
-                <option value="Umland von Oxenfurt">Umland von Oxenfurt</option>
+                <option value="ort 1">Ort 1</option>
+                <option value="ort 2">Ort 2</option>
+                <option value="ort 3">Ort 3</option>
+                <option value="ort 4">Ort 4</option>
             </select>
         </div>
     </div>
@@ -325,7 +300,7 @@ $insert_array = array(
     <div class="noticeboard_formblock">
         <div class="noticeboard_formblock-label">
             <b>Belohnung</b>
-            <br>Gib an, wie viel die Auftraggeber*innen der Gruppe an Entlohnung versprechen (in Kopper). Das muss nicht mit der Belohnung übereinstimmen, die Du für sie vorsiehst.
+            <br>Gib an, wie viel die Auftraggeber*innen der Gruppe an Entlohnung versprechen. Das muss nicht mit der Belohnung übereinstimmen, die Du für sie vorsiehst.
         </div>
         <div class="noticeboard_formblock-field">
             <input type="text" name="reward" id="reward">
@@ -335,7 +310,7 @@ $insert_array = array(
     <div class="noticeboard_formblock">
         <div class="noticeboard_formblock-label">
             <b>Geleitet?</b>
-            <br>Wähle aus, ob die Quest geleitet wird. Wenn sie frei geleitet wird, kannst Du sie selbst leiten. Trage Dich dann entsprechend ein. Wenn sie nicht geleitet wird, schreibe die Auftragsinformationen so, dass die User den Auftrag ohne weitere Informationen absolvieren können.
+            <br>Wähle aus, ob die Quest geleitet wird. Wenn sie nicht geleitet wird, schreibe die Auftragsinformationen so, dass die User den Auftrag ohne weitere Informationen absolvieren können.
         </div>
         <div class="noticeboard_formblock-field">
             <select name="lead" id="lead" style="width: 100%;">
@@ -344,16 +319,6 @@ $insert_array = array(
                 <option value="<i class=\'fa-regular fa-eye\'></i>">frei geleitet</option>
                 <option value="<i class=\'fa-solid fa-eye-slash\'></i>">nicht geleitet</option>
             </select>
-        </div>
-    </div>
-
-    <div class="noticeboard_formblock">
-        <div class="noticeboard_formblock-label">
-            <b>Geleitet von</b>
-            <br>Wenn Du die Quest selbst leiten willst, trage Dich hier ein. Ansonsten kann jemand anderes die Quest leiten und sieht Deine Informationen.
-        </div>
-        <div class="noticeboard_formblock-field">
-            <input type="text" name="leadby" id="leadby">
         </div>
     </div>
 
@@ -376,13 +341,10 @@ $insert_array = array(
     <div class="noticeboard_formblock">
         <div class="noticeboard_formblock-label">
             <b>Monster</b>
-            <br>Wähle aus, mit welchem Monster die Charaktere zu rechnen haben - insofern es eines gibt. Sie können auch andere Monster treffen (insbesondere den Bossgegner).
+            <br>Gib an, mit welchem Monster die Charaktere zu rechnen haben - insofern es eines gibt. Sie können auch andere Monster treffen (insbesondere den Bossgegner).
         </div>
         <div class="noticeboard_formblock-field">
-            <select name="monster" id="monster">
-                <option>Wähle ein Monster aus</option>
-                {$noticeboard_monsters}
-            </select>
+            <input type="text" name="monster" id="monster">
         </div>
     </div>
 
@@ -423,7 +385,7 @@ $insert_array = array(
     <div class="noticeboard_formblock">
         <div class="noticeboard_formblock-label">
             <b>Belohnungen</b>
-            <br>Trage hier weitere Belohnungen ein, die die Charaktere finden können. Wenn Du etwas Exotisches verteilen willst, sprich Dich mit der Spielleitung ab.
+            <br>Trage hier weitere Belohnungen ein, die die Charaktere finden können.
         </div>
         <div class="noticeboard_formblock-field">
             <textarea name="treassure" id="treassure"></textarea>
@@ -470,7 +432,7 @@ $db->insert_query("templates", $insert_array);
 $insert_array = array(
     'title'	    => 'noticeboard_alert',
     'template'	=> $db->escape_string('
-<div style="background: #ffff00;">
+<div class="red_alert">
     Jemand hat einen neuen Auftrag ausgeschrieben!
     {$noticeboard_read}
 </div>
@@ -619,23 +581,10 @@ $insert_array = array(
         <div class="noticeboard_formblock-field">
             <select name="location" id="location"  style="width: 100%;">
                 <option value="{$noticeboard[\'location\']}">{$noticeboard[\'location\']}</option>
-                <option value="Novigrad">Novigrad</option>
-                <option value="Oxenfurt">Oxenfurt</option>
-                <option value="Umland von Novigrad">Umland von Novigrad</option>
-                <option value="Umland von Oxenfurt">Umland von Oxenfurt</option>
-            </select>
-        </div>
-    </div>
-		
-	<div class="noticeboard_formblock">
-        <div class="noticeboard_formblock-label">
-            <b>Wähle die entsprechende Karte</b>
-            <br>Wähle die Karte, auf der der Spielort zu sehen ist. Du kannst den Spielort mit einem Questmarker markieren. Vergiss nicht, in die Beschreibung den Auftragsnamen einzufügen.
-        </div>
-        <div class="noticeboard_formblock-field">
-            <select name="locationmap" id="locationmap">
-                <option value="{$noticeboard[\'locationmap\']}">{$noticeboard[\'locationmap\']}</option>
-                {$noticeboard_locationmaps}
+                <option value="ort 1">Ort 1</option>
+                <option value="ort 2">Ort 2</option>
+                <option value="ort 3">Ort 3</option>
+                <option value="ort 4">Ort 4</option>
             </select>
         </div>
     </div>
@@ -643,10 +592,10 @@ $insert_array = array(
     <div class="noticeboard_formblock">
         <div class="noticeboard_formblock-label">
             <b>Belohnung</b>
-            <br>Gib an, wie viel die Auftraggeber*innen der Gruppe an Entlohnung versprechen (in Kopper). Das muss nicht mit der Belohnung übereinstimmen, die Du für sie vorsiehst.
+            <br>Gib an, wie viel die Auftraggeber*innen der Gruppe an Entlohnung versprechen. Das muss nicht mit der Belohnung übereinstimmen, die Du für sie vorsiehst.
         </div>
         <div class="noticeboard_formblock-field">
-            <input type="text" name="reward" id="reward"  value="{$noticeboard[\'reward\']}">
+            <input type="text" name="reward" id="reward" value="{$noticeboard[\'reward\']}">
         </div>
     </div>
 
@@ -662,16 +611,6 @@ $insert_array = array(
                 <option value="<i class=\'fa-regular fa-eye\'></i>">frei geleitet</option>
                 <option value="<i class=\'fa-solid fa-eye-slash\'></i>">nicht geleitet</option>
             </select>
-        </div>
-    </div>
-
-    <div class="noticeboard_formblock">
-        <div class="noticeboard_formblock-label">
-            <b>Geleitet von</b>
-            <br>Wenn Du die Quest selbst leiten willst, trage Dich hier ein. Ansonsten kann jemand anderes die Quest leiten und sieht Deine Informationen.
-        </div>
-        <div class="noticeboard_formblock-field">
-            <input type="text" name="leadby" id="leadby" value="{$noticeboard[\'leadby\']}">
         </div>
     </div>
 
@@ -697,10 +636,7 @@ $insert_array = array(
             <br>Wähle aus, mit welchem Monster die Charaktere zu rechnen haben - insofern es eines gibt. Sie können auch andere Monster treffen (insbesondere den Bossgegner).
         </div>
         <div class="noticeboard_formblock-field">
-            <select name="monster" id="monster">
-                <option value="{$noticeboard[\'monster\']}">{$noticeboard[\'monster\']}</option>
-                {$noticeboard_monsters}
-            </select>
+		<input type="text" name="monster" id="monster" value="{$noticeboard[\'monster\']}">
         </div>
     </div>
 
@@ -877,7 +813,7 @@ $db->insert_query("templates", $insert_array);
 $insert_array = array(
     'title'	    => 'noticeboard_no_permission',
     'template'	=> $db->escape_string('
-<div class="noticeboard_quest">Du hast keine Erlaubnis, dir die Quests anzuschauen. Wahrscheinlich bist du ein Nekker!</div>
+<div class="noticeboard_quest">Du hast keine Erlaubnis, Dir die Quests anzuschauen.</div>
     '),
     'sid'       => '-2',
     'dateline'  => TIME_NOW
@@ -910,7 +846,7 @@ $insert_array = array(
     </div>
     <div class="noticeboard_quest-footer-right">
         <div class="noticeboard_quest-footer-right-item">
-        <div class="noticeboard_quest-footer-right-item-top"><a href="/maps.php?mid={$noticeboard[\'locationmap\']}">{$noticeboard[\'location\']}</a></div>
+        <div class="noticeboard_quest-footer-right-item-top">{$noticeboard[\'location\']}</div>
         <div class="noticeboard_quest-footer-right-item-bottom">Location</div>
         </div>
         <div class="noticeboard_quest-footer-right-item">
@@ -1080,7 +1016,7 @@ $db->insert_query("templates", $insert_array);
 $insert_array = array(
     'title'	    => 'noticeboard_sl_information',
     'template'	=> $db->escape_string('
-    <button class="sl_button{$noticeboard[\'nid\']}">x</button>
+    <button class="sl_button{$noticeboard[\'nid\']}"><i class="fa-regular fa-circle-info"></i></button>
     <div class="noticeboard_hidden-sl-information sl{$noticeboard[\'nid\']}"> 
     
     
