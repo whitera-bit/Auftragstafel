@@ -131,6 +131,16 @@ rebuild_settings();
 
 require_once MYBB_ADMIN_DIR."inc/functions_themes.php";
 require_once MYBB_ROOT."/inc/adminfunctions_templates.php";
+	
+// ## Templategruppe erstellen
+	
+$templategrouparray = array(
+    'prefix' => 'noticeboard',
+    'title'  => $db->escape_string('Anschlagstafel'),
+    'isdefault' => 1
+  );
+
+  $db->insert_query("templategroups", $templategrouparray);
 
 // ## Seite - noticeboard
 $insert_array = array(
