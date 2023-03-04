@@ -130,7 +130,7 @@ rebuild_settings();
  // Templates und CSS erstellen
 
 require_once MYBB_ADMIN_DIR."inc/functions_themes.php";
-require MYBB_ROOT."/inc/adminfunctions_templates.php";
+require_once MYBB_ROOT."/inc/adminfunctions_templates.php";
 
 // ## Seite - noticeboard
 $insert_array = array(
