@@ -510,7 +510,6 @@ if(!$mybb->input['action']) {
                     "boss" => $db->escape_string($mybb->get_input('boss')),
                     "solution" => $db->escape_string($mybb->get_input('solution')),
                     "visible" => $db->escape_string($mybb->get_input('visible')),
-                    "writtenby" => (int)$mybb->user['uid'],
                     "status" => "0",
                 );
 
@@ -597,7 +596,7 @@ if(!$mybb->input['action']) {
                     "skills" => $db->escape_string($mybb->get_input('skills')),
                     "location" => $db->escape_string($mybb->get_input('location')),
                     "lead" => $db->escape_string($mybb->get_input('lead')),
-                    "monster" => $db->escape_string($mybb->get_input('monster')),
+                    "leadby" => $db->escape_string($mybb->get_input('leadby')),
                     "reward" => $db->escape_string($mybb->get_input('reward')),
                     "level" => $db->escape_string($mybb->get_input('level')),
                     "background" => $db->escape_string($mybb->get_input('background')),
@@ -610,7 +609,6 @@ if(!$mybb->input['action']) {
                     "players" => $db->escape_string($mybb->get_input('players')),
                     "scene" => $db->escape_string($mybb->get_input('scene')),
                     "status" => $db->escape_string($mybb->get_input('status')),
-                    "writtenby" => (int)$mybb->user['uid'],
                 );
 
             $db->update_query("noticeboard", $edit_noticeboard, "nid = '".$nid."'");
