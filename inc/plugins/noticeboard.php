@@ -1454,7 +1454,7 @@ function noticeboard_activate()
     global $db, $cache;
     
     require_once MYBB_ADMIN_DIR."inc/functions_themes.php";
-    require MYBB_ROOT."/inc/adminfunctions_templates.php";
+    require_once MYBB_ROOT."/inc/adminfunctions_templates.php";
 
     // Variable für den Alert im Header
 
@@ -1466,7 +1466,7 @@ function noticeboard_deactivate()
      global $db, $cache;
 
     require_once MYBB_ADMIN_DIR."inc/functions_themes.php";
-    require MYBB_ROOT."/inc/adminfunctions_templates.php";
+    require_once MYBB_ROOT."/inc/adminfunctions_templates.php";
 
     // Variablen für den Alert im Header entfernen
 
@@ -1596,15 +1596,3 @@ global $mybb, $theme, $lang;
 
 return $plugin_array;
 }
-
-
-
-
-
-
-
-
-
-
-
-
