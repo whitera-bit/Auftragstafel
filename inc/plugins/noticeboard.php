@@ -1444,6 +1444,7 @@ function noticeboard_uninstall()
     rebuild_settings();
 
     // Templates löschen
+    $db->delete_query("templategroups", "prefix = 'noticeboard'");
     $db->delete_query("templates", "title LIKE '%noticeboard%'");
 
     // CSS löschen
