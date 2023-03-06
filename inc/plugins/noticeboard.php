@@ -11,7 +11,7 @@ if(!defined("IN_MYBB"))
 function noticeboard_info() 
 {
 	return array(
-		"name"			=> "Anschlagstafel",
+		"name"			=> "Auftragstafel",
 		"description"	=> "Ein Questplugin für Aufträge und Quests.",
 		"author"		=> "white_rabbit",
 		"authorsite"	=> "https://epic.quodvide.de/member.php?action=profile&uid=2",
@@ -144,7 +144,7 @@ require_once MYBB_ROOT."/inc/adminfunctions_templates.php";
 	
 $templategrouparray = array(
     'prefix' => 'noticeboard',
-    'title'  => $db->escape_string('Anschlagstafel'),
+    'title'  => $db->escape_string('Auftragstafel'),
     'isdefault' => 1
   );
 
