@@ -1137,258 +1137,257 @@ $css = array(
     'attachedto' => '',
     "stylesheet" =>	'
     .noticeboard button {
-        cursor: pointer;
-        width: 100px;
-        background: var(--highlight);
-        border: none;
-    }
+    cursor: pointer;
+    width: 100px;
+    background: #294DA5;
+    border: none;
+}
+
+.noticeboard b {
+    color: #294DA5;
+}
+
+/* Popup*/
+
+.sl {
+    display: none;
+}
+
+.noticeboard_hidden-sl-information {
+  position: absolute;
+  z-index: 1;
+  left: 25%;
+  width: 1000px;
+  background-color: rgba(190, 190, 190, 0.9);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.noticeboard_hidden-content {
+  width: 1000px;
+  margin: auto;
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.noticeboard {
+  width: 100%;
+  background: #fff;
+  display: flex;
+ gap: 40px;
+  align-items: flex-start;
     
-    .noticeboard b {
-        color: var(--highlight);
-    }
-    
-    /* Popup*/
-    
-    .sl {
-        display: none;
-    }
-    
-    .noticeboard_hidden-sl-information {
-      position: absolute;
-      z-index: 1;
-      left: 25%;
-      width: 1000px;
-      background-color: rgba(0, 0, 0, 0.9);
-      animation-name: animatetop;
-      animation-duration: 0.4s;
-    }
-    
-    @keyframes animatetop {
-      from {
-        top: -300px;
-        opacity: 0;
-      }
-      to {
-        top: 0;
-        opacity: 1;
-      }
-    }
-    
-    .noticeboard_hidden-content {
-      width: 1000px;
-      margin: auto;
-      padding: 50px;
-      box-sizing: border-box;
-    }
-    
-    .noticeboard {
-      width: 100%;
-      background: var(--col2);
-      display: flex;
-     gap: 40px;
-      align-items: flex-start;
-        
-        font-family: Roboto, sans-serif;
-    }
-    
-    .noticeboard_navigation {
-        align-self: flex-start;
-    }
-    
-    .noticeboard_navigation-title {
-        width: 200px;
-      background: var(--col1);
-      padding: 20px;
-      text-transform: uppercase;
-      color: var(--highlight);
-      font-weight: bold;
-    }
-    
-    .noticeboard_navigation-links {
-      padding: 10px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      text-align: left;
-    }
-    
-    /* #################### Forms #################### */
-    
-    .noticeboard_form {
-        flex-basis: 1000px;
-        padding: 40px;
-    }
-    
-    .noticeboard_formblock {
-        margin: 20px 0;
-    }
-    
-    .noticeboard_formblock-label {
-        width: 80%;
-    }
-    
-    .noticeboard_formblock-label b {
-        color: var(--highlight);
-        text-transform: uppercase;
-        font-size: 16px;
-    }
-    
-    .noticeboard_formblock-field textarea {
-        width: 80%;
-        height: 250px;
-    }
-    
-    .noticeboard_formblock-field select {
-        width: 50%;
-    }
-    
-    .noticeboard_formblock-field input {
-        width: 300px;
-    }
-    
-    .noticeboard_formblock-field-radio {
-        width: 300px;
-    }
-    
-    /* #################### Content #################### */
-    
-    .noticeboard_content {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    
-    .noticeboard_description {
-        padding: 40px;
-        line-height: 180%;
-    }
-    
-    .noticeboard_quest {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      width: 700px;
-      margin: 30px auto;
-      background: var(--col1);
-      padding: 30px;
-      box-sizing: border-box;
-    }
-    
-    .noticeboard_header {
-        display: flex;
-        gap: 20px;
-        justify-content: flex-end;
-    }
-    
-    .noticeboard_quest-head-free,
-    .noticeboard_quest-head-taken,
-    .noticeboard_quest-head-finished
-    {
-      align-self: flex-end;
-        font-size: 30px;
-        color: var(--highlight);
-    }
-    
-    .noticeboard_quest-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      font-family: var(--title);
-    }
-    
-    .noticeboard_quest-title-title {
-      font-size: 25px;
-      text-transform: uppercase;
-    }
-    
-    .noticeboard_quest-title-contributor {
-      color: var(--highlight);
-      text-transform: uppercase;
-    }
-    
-    .noticeboard_quest-content {
-    }
-    
-    .noticeboard_quest-keywords {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-    
-    .noticeboard_quest-keywords div {
-      background: var(--col11);
-      padding: 5px 20px;
-      color: var(--highlight);
-      text-transform: uppercase;
-    }
-    
-    .noticeboard_quest-footer {
-      display: flex;
-      justify-content: space-between;
-    }
-    
-    .noticeboard_quest-footer-feats {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    
-    .noticeboard_quest-footer-feats div {
-      background: var(--col2);
-      padding: 5px 10px;
-      color: var(--highlight);
-      font-size: 11px;
-        text-align: left;
-      text-transform: uppercase;
-    }
-    
-    .noticeboard_quest-footer-right {
-      display: flex;
-      justify-content: flex-end;
-      gap: 30px;
-    }
-    
-    .noticeboard_quest-footer-right-item {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      text-transform: uppercase;
-    }
-    
-    .noticeboard_quest-footer-right-item-top {
-      font-family: var(--title);
-      color: var(--highlight);
-        text-align: center;
-        font-size: 12px;
-    }
-    
-    .noticeboard_quest-footer-level {
-      display: flex;
-      align-items: flex-end;
-        font-size: 30px;
-      gap: 5px;
-    }
-    
-    .noticeboard_quest-footer-right-item-bottom {
-    }
-    
-    
-    
-    /* ################### Szene annehmen ###################### */
-    
-    .noticeboard_quest-take b {
-        color: var(--highlight);
-    }
-    
-    .noticeboard_quest-taken b {
-        color: var(--highlight);
-        text-transform: uppercase;
-    }
-    
-    .noticeboard_quest-take input {
-        width: 20%;
-    }
+    font-family: Roboto, sans-serif;
+}
+
+.noticeboard_navigation {
+    align-self: flex-start;
+}
+
+.noticeboard_navigation-title {
+    width: 200px;
+  background: #fafafa;
+  padding: 20px;
+  text-transform: uppercase;
+  color: #294DA5;
+  font-weight: bold;
+}
+
+.noticeboard_navigation-links {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+/* #################### Forms #################### */
+
+.noticeboard_form {
+    flex-basis: 1000px;
+    padding: 40px;
+}
+
+.noticeboard_formblock {
+    margin: 20px 0;
+}
+
+.noticeboard_formblock-label {
+    width: 80%;
+}
+
+.noticeboard_formblock-label b {
+    color: #294DA5;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.noticeboard_formblock-field textarea {
+    width: 80%;
+    height: 250px;
+}
+
+.noticeboard_formblock-field select {
+    width: 50%;
+}
+
+.noticeboard_formblock-field input {
+    width: 300px;
+}
+
+.noticeboard_formblock-field-radio {
+    width: 300px;
+}
+
+/* #################### Content #################### */
+
+.noticeboard_content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.noticeboard_description {
+    padding: 40px;
+    line-height: 180%;
+}
+
+.noticeboard_quest {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 700px;
+  margin: 30px auto;
+  background: #fafafa;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.noticeboard_header {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.noticeboard_quest-head-free,
+.noticeboard_quest-head-taken,
+.noticeboard_quest-head-finished
+{
+  align-self: flex-end;
+    font-size: 30px;
+    color: #294DA5;
+}
+
+.noticeboard_quest-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.noticeboard_quest-title-title {
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.noticeboard_quest-title-contributor {
+  color: #294DA5;
+  text-transform: uppercase;
+}
+
+.noticeboard_quest-content {
+}
+
+.noticeboard_quest-keywords {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.noticeboard_quest-keywords div {
+  background: #efefef;
+  padding: 5px 20px;
+  color: #294DA5;
+  text-transform: uppercase;
+}
+
+.noticeboard_quest-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.noticeboard_quest-footer-feats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.noticeboard_quest-footer-feats div {
+  background: #f8f8f8;
+  padding: 5px 10px;
+  color: #294DA5;
+  font-size: 11px;
+    text-align: left;
+  text-transform: uppercase;
+}
+
+.noticeboard_quest-footer-right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+}
+
+.noticeboard_quest-footer-right-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.noticeboard_quest-footer-right-item-top {
+  color: #294DA5;
+    text-align: center;
+    font-size: 12px;
+}
+
+.noticeboard_quest-footer-level {
+  display: flex;
+  align-items: flex-end;
+    font-size: 30px;
+  gap: 5px;
+}
+
+.noticeboard_quest-footer-right-item-bottom {
+}
+
+
+
+/* ################### Szene annehmen ###################### */
+
+.noticeboard_quest-take b {
+    color: #294DA5;
+}
+
+.noticeboard_quest-taken b {
+    color: #294DA5;
+    text-transform: uppercase;
+}
+
+.noticeboard_quest-take input {
+    width: 20%;
+}
+
     ',
     'cachefile'     => $db->escape_string(str_replace('/', '', 'noticeboard.css')),
     'lastmodified'  => time()
