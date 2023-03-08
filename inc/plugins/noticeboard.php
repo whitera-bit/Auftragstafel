@@ -124,6 +124,14 @@ function noticeboard_install()
             'value' => '4', // Default
             'disporder' => 5
         ),
+	
+	'noticeboard_allow_groups_edit' => array(
+	    'title' => 'Aufträge bearbeiten',
+            'description' => 'Welche Gruppen dürfen Aufträge bearbeiten?',
+            'optionscode' => 'groupselect',
+            'value' => '4', // Default
+            'disporder' => 6
+        ),	
     );
 
 foreach($setting_array as $name => $setting)
