@@ -131,7 +131,15 @@ function noticeboard_install()
             'optionscode' => 'groupselect',
             'value' => '4', // Default
             'disporder' => 6
-        ),	
+        ),
+	
+	'noticeboard_allow_groups_lead' => array(
+	    'title' => 'Spielleitungsinformationen',
+            'description' => 'Welche Gruppen dürfen Spielleitungsinformationen sehen?',
+            'optionscode' => 'groupselect',
+            'value' => '4', // Default
+            'disporder' => 7
+        ),
     );
 
 foreach($setting_array as $name => $setting)
