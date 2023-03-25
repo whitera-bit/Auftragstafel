@@ -1540,7 +1540,7 @@ function noticeboard_global(){
 
 
         $data = $db->fetch_array ($select);
-        if ($data['noticeboard_new'] == '0') {
+        if (isset($data['noticeboard_new']) == '0') {
 
             eval("\$new_noticeboard = \"" . $templates->get ("noticeboard_alert") . "\";");
 
